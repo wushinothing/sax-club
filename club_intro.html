@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="萨克斯社活动介绍：日常排练、公开课、专场音乐会与公益演出。">
+<title>萨克斯社 | 活动介绍</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%B7%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#0c0b10; --bg2:#12111a; --panel:#17151f; --line:#2a2634;
+    --gold:#d8a24a; --gold2:#f0cf95; --text:#e8e2d8; --muted:#a49a8d;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--bg);color:var(--text);
+    font:16px/1.95 "Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--gold2)}
+  .topbar{
+    position:sticky;top:0;z-index:20;
+    background:rgba(12,11,16,.90);border-bottom:1px solid var(--line);
+    backdrop-filter:blur(14px);
+  }
+  .topbar .inner{
+    max-width:880px;margin:0 auto;padding:14px 24px;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+  }
+  .brand{font-size:14px;letter-spacing:.30em;color:var(--gold);text-decoration:none}
+  .back{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:10px 20px;border-radius:999px;border:1px solid rgba(240,207,149,.42);
+    color:var(--gold2);text-decoration:none;font-size:14px;letter-spacing:.06em;
+    transition:all .2s ease;
+  }
+  .back:hover{background:var(--gold);color:#161006;border-color:var(--gold)}
+
+  header.hero{
+    position:relative;padding:96px 24px 74px;
+    background:#0c0b10;isolation:isolate;overflow:hidden;
+  }
+  header.hero::after{
+    content:"";position:absolute;inset:-60px;z-index:-2;
+    background:url("sax_club.jpg") center 30%/cover no-repeat;
+    filter:blur(22px) brightness(.46) saturate(1.06);
+  }
+  header.hero::before{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(180deg,rgba(8,7,12,.72),rgba(8,7,12,.94) 70%,var(--bg));
+  }
+  .hero-inner{position:relative;max-width:880px;margin:0 auto}
+  .kicker{font-size:12px;letter-spacing:.40em;text-transform:uppercase;color:var(--gold);margin:0 0 18px}
+  h1{margin:0;font-size:clamp(34px,6vw,58px);letter-spacing:.10em;color:#fffbe9;line-height:1.15}
+  .hero p{margin:22px 0 0;max-width:620px;color:#cfc6b8;font-size:16.5px}
+
+  main{max-width:880px;margin:0 auto;padding:76px 24px 40px}
+  h2{
+    margin:0 0 6px;font-size:24px;letter-spacing:.10em;color:#fbf5e7;
+    display:flex;align-items:baseline;gap:14px;
+  }
+  h2 span{font-size:12px;letter-spacing:.22em;color:var(--muted);font-weight:400;text-transform:uppercase}
+  .rule{width:52px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:18px 0 24px}
+  article{margin-bottom:58px}
+  article p{margin:0 0 1.1em;text-align:justify;text-justify:inter-ideograph;color:#d6cfc3}
+  article p+p{text-indent:2em}
+  .meta{
+    display:flex;flex-wrap:wrap;gap:10px;margin:0 0 22px;padding:0;list-style:none;
+  }
+  .meta li{
+    font-size:13px;color:var(--gold2);border:1px solid rgba(216,162,74,.35);
+    border-radius:999px;padding:6px 14px;letter-spacing:.05em;
+    background:rgba(216,162,74,.07);
+  }
+  figure{margin:0 0 10px;max-width:520px}
+  figure img{display:block;width:100%;border-radius:16px;border:1px solid var(--line)}
+  figcaption{font-size:13px;color:var(--muted);margin-top:12px}
+
+  .note{
+    background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--gold);
+    border-radius:0 14px 14px 0;padding:24px 28px;margin:0 0 26px;
+    color:#d8d1c5;font-size:15.5px;
+  }
+  .note b{color:var(--gold2);display:block;margin-bottom:6px;letter-spacing:.08em}
+
+  .back-bottom{text-align:center;padding:36px 0 10px;border-top:1px solid var(--line)}
+  .back-bottom p{color:var(--muted);font-size:14px;margin:0 0 18px}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;padding:14px 36px;border-radius:999px;
+    background:linear-gradient(135deg,#eec780,#c8912f);color:#1a1206;
+    text-decoration:none;font-weight:700;letter-spacing:.08em;
+    box-shadow:0 14px 34px rgba(200,145,47,.26);transition:all .22s ease;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(200,145,47,.38)}
+  footer{padding:44px 24px 54px;text-align:center;color:var(--muted);font-size:13px;line-height:2}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="inner">
+    <a class="brand" href="zheng-0234-work2.html">萨克斯社 SAX CLUB</a>
+    <a class="back" href="zheng-0234-work2.html">← 返回萨克斯社招新网页</a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="kicker">Activities · A305</p>
+    <h1>我们的一学期<br>从第一个音开始</h1>
+    <p>萨克斯社的活动并不复杂：每周两次排练，每学期一次公开课、一场专场音乐会，以及若干次走出校园的公益演出。下面是这些活动具体的样子。</p>
+  </div>
+</header>
+
+<main>
+
+  <article>
+    <h2>日常排练 <span>Weekly Rehearsal</span></h2>
+    <div class="rule"></div>
+    <ul class="meta">
+      <li>每周三、周六 19:00–21:00</li>
+      <li>艺术楼 A305 音乐教室</li>
+      <li>四声部合排</li>
+    </ul>
+    <p>排练的前半小时是基本功：长音、吐音、音阶，一个音要吹满八拍，中途不许抖。接下来的一个小时按声部分开，声部长逐句抠节奏与音准；最后半小时四个声部合到一起，从慢速开始，一遍一遍地把和声叠严。排练室里常年备着一台节拍器、一块白板和一堆写着指法的便签，谁的音偏高、谁的换气太急，都会被当场记下来。</p>
+    <p>零基础的成员先在预备班练习口型与气息，学期中段再并入正式声部。社团常备十二支乐器供借用，登记即可使用一整个学期。</p>
+  </article>
+
+  <article>
+    <h2>基础教学公开课 <span>Open Class</span></h2>
+    <div class="rule"></div>
+    <ul class="meta">
+      <li>每学期一次</li>
+      <li>艺术楼 A305 音乐教室</li>
+      <li>面向全校开放</li>
+    </ul>
+    <p>公开课从"怎么把哨片装上去"讲起：乐器的构造、哨片的软硬、口型的位置、气息从哪里出来，然后是第一个长音。我们会拆解一段很短的旋律，现场示范怎么把它吹得连贯。课上备有一次性哨片和若干支社团乐器，路过的同学可以随时上来试吹。</p>
+    <p>这门课不需要任何基础，也不需要提前报名。带上好奇心来就可以，吹不响完全没关系——社里有一半人第一次也是这样。</p>
+  </article>
+
+  <article>
+    <h2>“金色黄昏”专场音乐会 <span>Spring Concert</span></h2>
+    <div class="rule"></div>
+    <ul class="meta">
+      <li>每年五月</li>
+      <li>艺术楼音乐厅</li>
+      <li>免费入场</li>
+    </ul>
+    <p>这是社团一年中最重要的舞台。曲目从古典改编、爵士标准曲到电影配乐与社员原创的重奏小品，十二人以上的大重奏会在这一晚完整亮相。选曲、编配、舞台灯光与节目单，全部由社员自己完成；演出前一周有全流程彩排，当天下午还有一次带妆联排。音乐会结束后，全体社员会在音乐厅门口拍一张大合影——谁站中间，由当天吹得最稳的人决定。</p>
+  </article>
+
+  <figure>
+    <img src="sax_club.jpg" alt="萨克斯社社员在排练室坐成一排吹奏萨克斯" width="864" height="1152">
+    <figcaption>排练室里的日常：四个声部坐成一排，谱台、乐谱与铜管上的反光。</figcaption>
+  </figure>
+
+  <article style="margin-top:58px">
+    <h2>走出校园 <span>Outreach</span></h2>
+    <div class="rule"></div>
+    <ul class="meta">
+      <li>校运会开幕式</li>
+      <li>社区文化节</li>
+      <li>小学公益课堂</li>
+    </ul>
+    <p>除了校内的舞台，我们也会把乐器搬到别的地方：校运会开幕式上的进行曲方阵、社区文化节的露天演出、小学音乐课上的公益课堂。这些演出往往没有专业的返送与灯光，有时甚至只有一块空地，但社员们说，看到台下小朋友跟着节奏晃脑袋，比在音乐厅里更让人紧张，也更让人记得住。</p>
+    <p>如果你所在的班级、社区或社团也想邀请我们演出，欢迎发邮件到 saxclub@example.com，说明时间、地点与大致曲目需求，我们会尽快回复。</p>
+  </article>
+
+  <div class="note">
+    <b>2026 年春季学期安排</b>
+    3 月 4 日新成员见面会、3 月 7 日萨克斯基础教学公开课（两场均在艺术楼 A305 音乐教室），3 月 14 日春季招新路演，4 月 11 日重奏声部排练，4 月 18 日校运会开幕式演出，5 月 23 日“金色黄昏”春季专场音乐会，6 月 13 日期末考核与换届选举。完整安排请见招新主页的“活动安排”表格。
+  </div>
+
+  <div class="back-bottom">
+    <p>看完了吗？下面回到招新主页，填一张报名表，我们在 A305 等你。</p>
+    <a class="btn" href="zheng-0234-work2.html">返回萨克斯社招新网页 →</a>
+  </div>
+</main>
+
+<footer>
+  萨克斯社 SAXOPHONE CLUB · 艺术楼 A305 音乐教室 · saxclub@example.com<br>
+  © 2026 萨克斯社 · 本页面为《网页设计与制作》上机作业 work2 的子页面
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="萨克斯社 2026 年春季学期招新主页：社团简介、活动安排、风采展示、社员故事与在线报名。">
+<title>萨克斯社 | 2026 春季招新 · 把黄昏吹成金色</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%B7%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#0c0b10;
+    --bg2:#12111a;
+    --panel:#17151f;
+    --line:#2a2634;
+    --gold:#d8a24a;
+    --gold2:#f0cf95;
+    --text:#e8e2d8;
+    --muted:#a49a8d;
+    --maxw:1040px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:auto}          /* 页内跳转“立刻”到达，不做平滑滚动 */
+  body{
+    margin:0;background:var(--bg);color:var(--text);
+    font:16px/1.9 "Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--gold2)}
+  img{max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* ---------- 要求1：左上角背景音乐 ---------- */
+  .bgm{
+    position:fixed;left:16px;top:16px;z-index:200;
+    display:flex;flex-direction:column;align-items:stretch;gap:8px;
+    padding:8px;width:216px;
+    background:rgba(12,11,16,.82);
+    border:1px solid rgba(216,162,74,.38);
+    border-radius:18px;
+    backdrop-filter:blur(14px);
+    box-shadow:0 12px 34px rgba(0,0,0,.55);
+  }
+  .bgm button{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    border:0;border-radius:12px;cursor:pointer;
+    padding:10px 14px;
+    background:linear-gradient(135deg,#e9c07a,#c8912f);
+    color:#1b1206;font:600 14px/1 "Microsoft YaHei",sans-serif;
+    letter-spacing:.04em;white-space:nowrap;
+    transition:filter .2s ease,transform .2s ease;
+  }
+  .bgm button:hover{filter:brightness(1.08);transform:translateY(-1px)}
+  .bgm button .note{font-size:16px}
+  .bgm audio{height:32px;width:200px;display:block}
+
+  /* ---------- 头图 ---------- */
+  .hero{
+    position:relative;min-height:100vh;
+    display:flex;align-items:center;
+    padding:150px 24px 90px;
+    background:#0c0b10;
+    isolation:isolate;overflow:hidden;
+  }
+  /* 竖构图照片做背景：先铺一层模糊压暗的底，再由 ::before 叠渐变 */
+  .hero::after{
+    content:"";position:absolute;inset:-70px;z-index:-2;
+    background:url("sax_club.jpg") center 32%/cover no-repeat;
+    filter:blur(28px) brightness(.40) saturate(1.1);
+    transform:scale(1.08);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:
+      radial-gradient(70% 60% at 78% 12%,rgba(216,162,74,.20),transparent 68%),
+      linear-gradient(100deg,rgba(8,7,12,.95) 0%,rgba(8,7,12,.86) 42%,rgba(8,7,12,.55) 78%,rgba(8,7,12,.72) 100%);
+  }
+  .hero-inner{max-width:var(--maxw);margin:0 auto;width:100%}
+  .kicker{
+    display:inline-flex;align-items:center;gap:12px;
+    font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);
+    margin:0 0 26px;
+  }
+  .kicker::before{content:"";width:46px;height:1px;background:var(--gold);display:inline-block}
+  .hero h1{
+    margin:0;font-size:clamp(46px,8vw,92px);line-height:1.02;letter-spacing:.06em;
+    font-weight:700;color:#fffbe9;
+    text-shadow:0 18px 60px rgba(0,0,0,.65);
+  }
+  .hero h1 small{
+    display:block;font-size:14px;font-weight:400;letter-spacing:.52em;
+    color:var(--gold);margin-top:22px;
+  }
+  .hero p.lead{
+    margin:30px 0 0;max-width:560px;font-size:17px;line-height:2;
+    color:#cfc6b8;
+  }
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 34px;border-radius:999px;text-decoration:none;
+    font-size:15px;letter-spacing:.08em;transition:all .22s ease;
+  }
+  .btn-gold{background:linear-gradient(135deg,#eec780,#c8912f);color:#1a1206;font-weight:700;box-shadow:0 14px 34px rgba(200,145,47,.28)}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(200,145,47,.40)}
+  .btn-ghost{border:1px solid rgba(240,207,149,.45);color:var(--gold2)}
+  .btn-ghost:hover{background:rgba(216,162,74,.12);border-color:var(--gold)}
+
+  /* ---------- 要求2：五个页内跳转链接 ---------- */
+  .nav{
+    position:sticky;top:0;z-index:120;
+    background:rgba(12,11,16,.88);
+    border-bottom:1px solid var(--line);
+    backdrop-filter:blur(16px);
+  }
+  .nav ul{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:6px;
+    list-style:none;margin:0 auto;padding:12px 18px;max-width:var(--maxw);
+  }
+  .nav a{
+    display:inline-block;padding:9px 18px;border-radius:999px;
+    color:var(--muted);text-decoration:none;font-size:15px;letter-spacing:.10em;
+    transition:all .2s ease;
+  }
+  .nav a:hover,.nav a:focus{background:var(--gold);color:#161006}
+
+  /* ---------- 版块通用 ---------- */
+  .section{padding:100px 0;border-bottom:1px solid var(--line);scroll-margin-top:76px}
+  .section.alt{background:linear-gradient(180deg,var(--bg2),var(--bg))}
+  .sec-head{display:flex;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px}
+  .sec-num{
+    font:600 13px/1 ui-monospace,SFMono-Regular,Consolas,monospace;
+    color:var(--gold);letter-spacing:.25em;padding-bottom:10px;
+  }
+  h2{
+    margin:0;font-size:clamp(28px,3.4vw,40px);font-weight:700;
+    letter-spacing:.10em;color:#fbf5e7;
+  }
+  .en{
+    display:block;font-size:11px;font-weight:400;letter-spacing:.36em;
+    text-transform:uppercase;color:var(--muted);margin-top:14px;
+  }
+  .rule{width:64px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:26px 0 34px}
+  .prose p{margin:0 0 1.15em;text-align:justify;text-justify:inter-ideograph;color:#d8d1c5}
+  .prose p+p{text-indent:2em}
+  .prose .lead{font-size:18px;line-height:2.05;color:#efe7d9;text-indent:0}
+  .prose strong{color:var(--gold2);font-weight:600}
+
+  /* 数据条 */
+  .stats{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);
+    border-radius:16px;overflow:hidden;margin:46px 0 0;
+  }
+  .stats div{background:var(--bg2);padding:26px 18px;text-align:center}
+  .stats b{display:block;font-size:32px;color:var(--gold2);letter-spacing:.02em;line-height:1.2}
+  .stats span{font-size:13px;color:var(--muted);letter-spacing:.08em}
+
+  /* 声部卡片 */
+  .instruments{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:44px 0 0}
+  .instruments div{
+    background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:22px 20px;transition:border-color .25s ease,transform .25s ease;
+  }
+  .instruments div:hover{border-color:rgba(216,162,74,.55);transform:translateY(-3px)}
+  .instruments b{display:block;color:var(--gold2);font-size:17px;letter-spacing:.06em;margin-bottom:8px}
+  .instruments em{display:block;font-style:normal;font:11px/1.6 ui-monospace,monospace;letter-spacing:.22em;color:var(--muted);margin-bottom:12px}
+  .instruments p{margin:0;font-size:14px;line-height:1.85;color:#b9b1a5}
+
+  /* ---------- 要求3：活动安排表 ---------- */
+  .table-wrap{
+    margin:6px 0 0;border:1px solid var(--line);border-radius:16px;
+    overflow-x:auto;background:var(--panel);
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+  }
+  table.schedule{width:100%;min-width:760px;border-collapse:collapse;font-size:15px}
+  .schedule th,.schedule td{padding:15px 20px;border-bottom:1px solid var(--line);vertical-align:middle}
+  .schedule tr:last-child td{border-bottom:0}
+  .schedule .table-title th{
+    background:linear-gradient(90deg,#1d1828,#2a2117);
+    color:var(--gold2);font-size:19px;letter-spacing:.14em;font-weight:700;
+    text-align:center;padding:22px 20px;border-bottom:1px solid rgba(216,162,74,.35);
+  }
+  .schedule .table-head th{
+    text-align:center;                /* 第二行内容居中 */
+    background:#151320;color:#efe7d9;font-weight:600;letter-spacing:.10em;
+  }
+  .schedule tbody td:first-child{
+    color:var(--gold2);font-weight:600;text-align:center;letter-spacing:.08em;
+    background:rgba(216,162,74,.05);
+  }
+  .schedule tbody tr:hover td{background:rgba(216,162,74,.06)}
+  .schedule .note td{
+    color:var(--muted);font-size:13.5px;line-height:1.9;text-align:left;
+    background:#100e16;padding:16px 20px;
+  }
+  .schedule .span-activity{color:#efe7d9;font-weight:600;letter-spacing:.04em}
+
+  /* ---------- 要求4/5：照片与视频并排；播放器按 3:4 填满自己的框，不留黑边 ---------- */
+  .media-row{
+    display:grid;grid-template-columns:1fr 1fr;gap:22px;
+    margin:44px auto 0;max-width:100%;align-items:start;
+  }
+  .media-photo{
+    position:relative;margin:0;border-radius:18px;overflow:hidden;
+    border:1px solid var(--line);background:#0a0910;aspect-ratio:3/4;
+  }
+  .media-photo a{display:block;position:absolute;inset:0;text-decoration:none}
+  .media-photo img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .7s ease;
+  }
+  .media-photo a:hover img{transform:scale(1.045);filter:brightness(1.06)}
+  .media-photo figcaption{
+    position:absolute;left:0;right:0;bottom:0;padding:44px 22px 18px;
+    background:linear-gradient(transparent,rgba(7,6,10,.92));
+    font-size:14px;color:#ded6c8;line-height:1.7;
+  }
+  .media-photo figcaption b{color:var(--gold2);display:block;margin-bottom:2px;letter-spacing:.06em}
+  .video-frame{
+    position:relative;width:100%;aspect-ratio:3/4;
+    border-radius:18px;overflow:hidden;border:1px solid var(--line);
+    background:#0a0910;box-shadow:0 18px 44px rgba(0,0,0,.42);
+  }
+  .video-frame embed{position:absolute;inset:0;display:block;width:100%;height:100%;border:0}
+  .media-note{
+    max-width:100%;margin:16px auto 0;text-align:center;
+    color:var(--muted);font-size:13.5px;line-height:1.9;
+  }
+  .media-note a{color:var(--gold2)}
+
+  /* ---------- 要求6：社员故事 ---------- */
+  .story{max-width:820px}
+  .story p{margin:0 0 1.2em;text-align:justify;text-justify:inter-ideograph;color:#d6cfc3;line-height:2.05}
+  .story p+p{text-indent:2em}
+  .story .drop::first-letter{
+    float:left;font-size:56px;line-height:.86;padding:8px 12px 0 0;color:var(--gold);
+    font-weight:700;font-family:Georgia,"Songti SC",serif;
+  }
+  blockquote{
+    margin:40px 0;padding:28px 32px;border-left:3px solid var(--gold);
+    background:linear-gradient(90deg,rgba(216,162,74,.10),rgba(216,162,74,0));
+    border-radius:0 14px 14px 0;
+    font-size:18px;line-height:2;color:#f2e8d7;
+  }
+  blockquote footer{margin-top:14px;font-size:13px;color:var(--muted);letter-spacing:.1em}
+
+  /* ---------- 要求7：在线报名 ---------- */
+  .form-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:18px;
+    padding:10px 30px 30px;margin-top:44px;
+    box-shadow:0 24px 60px rgba(0,0,0,.34);
+  }
+  .form-card form{margin:0}
+  table.reg{width:100%;border-collapse:collapse}
+  .reg th,.reg td{padding:16px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  .reg tr:last-child th,.reg tr:last-child td{border-bottom:0}
+  .reg th{
+    width:168px;text-align:right;padding-right:22px;
+    color:var(--gold2);font-weight:600;font-size:15px;letter-spacing:.04em;white-space:nowrap;
+  }
+  .reg td{text-align:left;font-size:15px;color:#d8d1c5}
+  .reg .req{color:#e07a5f;margin-left:4px}
+  input[type=text],input[type=email],input[type=tel],select,textarea{
+    background:#0f0d15;border:1px solid #322c40;border-radius:9px;
+    color:var(--text);padding:10px 13px;font:inherit;font-size:15px;
+    transition:border-color .2s ease,box-shadow .2s ease;
+  }
+  input[type=text]:focus,input[type=email]:focus,select:focus,textarea:focus{
+    outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(216,162,74,.16);
+  }
+  textarea{width:100%;max-width:560px;resize:vertical;line-height:1.8}
+  input::placeholder,textarea::placeholder{color:#6f6759}
+  .opt{
+    display:inline-flex;align-items:center;gap:7px;
+    margin:0 22px 8px 0;font-size:15px;color:#d8d1c5;cursor:pointer;
+  }
+  .opt input{accent-color:var(--gold);width:16px;height:16px;cursor:pointer}
+  .ymd{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .ymd span{color:var(--muted);font-size:14px}
+  .field-note{display:block;color:var(--muted);font-size:12.5px;margin-top:8px;letter-spacing:.02em}
+  .actions{padding-top:26px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  input[type=submit],input[type=reset]{
+    border:0;cursor:pointer;padding:14px 40px;border-radius:999px;
+    font:700 15px/1 "Microsoft YaHei",sans-serif;letter-spacing:.10em;
+    transition:transform .2s ease,filter .2s ease;
+  }
+  input[type=submit]{background:linear-gradient(135deg,#eec780,#c8912f);color:#1a1206;box-shadow:0 14px 30px rgba(200,145,47,.26)}
+  input[type=submit]:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  input[type=reset]{background:transparent;border:1px solid #3a3348;color:var(--muted)}
+  input[type=reset]:hover{border-color:var(--gold);color:var(--gold2)}
+
+  /* 一键返回 */
+  .to-top{
+    display:inline-flex;align-items:center;gap:9px;margin-top:48px;
+    padding:11px 22px;border:1px solid var(--line);border-radius:999px;
+    color:var(--muted);text-decoration:none;font-size:14px;letter-spacing:.10em;
+    transition:all .22s ease;
+  }
+  .to-top:hover{color:#161006;background:var(--gold);border-color:var(--gold)}
+
+  /* 页脚 */
+  footer{padding:64px 24px 54px;text-align:center;color:var(--muted);font-size:13.5px;line-height:2}
+  footer b{color:var(--gold2);letter-spacing:.16em;font-size:15px;display:block;margin-bottom:10px}
+  footer .sep{color:#3d3748;margin:0 10px}
+
+  /* 响应式 */
+  @media (max-width:900px){
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .instruments{grid-template-columns:repeat(2,1fr)}
+    .gallery{grid-template-columns:1fr;max-width:440px}
+    .media-row{grid-template-columns:1fr;max-width:440px;margin-left:auto;margin-right:auto}
+    .section{padding:78px 0}
+    .bgm{width:196px}
+    .bgm audio{width:180px}
+  }
+  @media (max-width:640px){
+    .hero{padding:170px 20px 70px;min-height:auto}
+    .bgm{left:10px;top:10px;padding:6px;width:auto;border-radius:14px}
+    .bgm audio{display:none}
+    .bgm button{padding:9px 14px;font-size:13px}
+    .instruments{grid-template-columns:1fr}
+    .form-card{padding:6px 16px 22px}
+    .reg th{width:96px;padding-right:12px;font-size:14px;white-space:normal}
+    .reg td,.reg th{padding:12px 4px}
+    .opt{margin-right:14px}
+  }
+</style>
+</head>
+<body id="top">
+
+<!-- ========== 要求1：网页左上角点击播放背景音乐（参考 ex3_23 的 audio 标签） ========== -->
+<div class="bgm">
+  <button id="bgmBtn" type="button" aria-controls="bgm" aria-pressed="false">
+    <span class="note">♪</span><span id="bgmText">点击播放背景音乐</span>
+  </button>
+  <audio id="bgm" src="sax_theme.mp3" controls loop preload="metadata"></audio>
+</div>
+
+<!-- ========== 头图 ========== -->
+<header class="hero">
+  <div class="hero-inner">
+    <p class="kicker">Saxophone Club · Since 2011</p>
+    <h1>萨克斯社<small>把黄昏吹成金色</small></h1>
+    <p class="lead">四个声部、一支重奏、六十多位把周三晚上交给音乐的同学。<br>2026 年春季招新现已开启，零基础也欢迎你走进艺术楼 A305。</p>
+    <div class="hero-cta">
+      <a class="btn btn-gold" href="#join">立即在线报名</a>
+      <a class="btn btn-ghost" href="#intro">先了解社团</a>
+    </div>
+  </div>
+</header>
+
+<!-- ========== 要求2：五个指向本网页内部的跳转链接（参考 ex3_12） ========== -->
+<nav class="nav" aria-label="页面导航">
+  <ul>
+    <li><a href="#intro">社团简介</a></li>
+    <li><a href="#schedule">活动安排</a></li>
+    <li><a href="#showcase">风采展示</a></li>
+    <li><a href="#story">社员故事</a></li>
+    <li><a href="#join">在线报名</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- ================= 1. 社团简介 ================= -->
+<section class="section" id="intro">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>社团简介<span class="en">About the Club</span></h2>
+    </div>
+    <div class="rule"></div>
+
+    <div class="prose">
+      <p class="lead">萨克斯社成立于 2011 年 9 月，是本校唯一以萨克斯重奏为核心的校级艺术类社团。十五年前，七个同学把乐器从琴房搬进教学楼的走廊，在熄灯后的楼梯间里吹完了一首《月亮代表我的心》；十五年后，我们拥有六十余名在校成员、四支声部齐全的编制，以及一间可以随时推开门的排练教室。</p>
+
+      <p>很多人对萨克斯的印象，停留在酒吧里那段慵懒的独奏，或者爵士乐唱片封面上那一抹弯曲的铜色。其实这件乐器很年轻：1840 年代，比利时人阿道夫·萨克斯把木管的气流与铜管的喇叭口拼在一起，发明了这种兼有柔韧与明亮的乐器。它既能像人声一样叹息，也能在合奏里撑起一整片金色的墙面。正因为这样，萨克斯天然适合"一群人说同一句话"——独奏时它是倾诉，重奏时它是合唱。</p>
+
+      <p>社团按声部组织训练，目前设有高音萨克斯（Soprano）、中音萨克斯（Alto）、次中音萨克斯（Tenor）与上低音萨克斯（Baritone）四个声部，以四重奏为最小排练单位，再逐步合成十二人以上的大重奏。每个新成员入社后的第一个月，都会在声部长的带领下完成三件事：找到适合自己的乐器、练出一段能完整吹下来的旋律、在合排里听见自己的位置。</p>
+
+      <p>我们的日常训练并不神秘。每周三、周六晚 19:00 至 21:00 是固定排练时间，前半小时是雷打不动的基本功——长音、吐音、音阶与气息控制；接下来的一个小时是分声部排练，声部长会逐句抠节奏与音准；最后半小时合排，把四个声部拼成一个整体。除此之外，社团每学期开设一次面向全校的萨克斯基础教学公开课，从"怎么把哨片装上去"讲起，任何人都可以来听。</p>
+
+      <p>我们不设门槛。社里有一半成员是进大学才第一次摸到萨克斯的，社团常备十二支乐器供新成员免费借用，从装哨片、调整口型到第一个八度，都有老成员一对一带着。2025 年春季，二十三位零基础同学在期末音乐会上完成了自己的第一次登台，其中三位现在已经是次中音声部的骨干。</p>
+
+      <p>指导教师陈默老师来自音乐学院管乐教研室，负责每学期的重奏指导与期末考核；几位已经毕业的老社员则会在周末回来，带着大家排一些"不太正经"的曲子——电影配乐、动漫主题曲、流行歌改编，只要四个声部凑得齐，我们就敢试。这种松弛感，是萨克斯社最像"家"的地方。</p>
+
+      <p>这些年，我们登上过校庆晚会的舞台，拿过市大学生艺术展演的二等奖，也去过社区养老院和小学做公益演出。但比起奖状，社员们更记得的是另一些瞬间：冬天的排练室里暖气不足，大家裹着羽绒服吹长音，呼出的白气在灯光下排成一条线；夏天演出结束，所有人坐在音乐厅台阶上分一箱冰镇汽水，铜管上还留着体温。</p>
+
+      <p>社团的组织并不复杂：理事会负责统筹，下设教学部、演出部、组织部与宣传部，每个声部再选一位声部长。教学部管课程与排练计划，演出部管曲目编配与舞台执行，组织部管招新、考勤与活动报名，宣传部管公众号、海报和演出录像。新成员入社一学期后可以申请加入任意一个部门，很多社员的第一份"工作"就是从给排练拍照开始的。</p>
+
+      <p>如果你也曾在某个傍晚被一段萨克斯前奏击中过，欢迎来 A305 坐一坐。我们不需要你已经吹得很好，只需要你愿意在周三晚上，把两个小时交给一件会发光的铜器。</p>
+    </div>
+
+    <div class="stats">
+      <div><b>2011</b><span>成立年份</span></div>
+      <div><b>60+</b><span>在校成员</span></div>
+      <div><b>4</b><span>完整声部</span></div>
+      <div><b>12</b><span>可借用乐器</span></div>
+    </div>
+
+    <div class="instruments">
+      <div><b>高音萨克斯</b><em>SOPRANO</em><p>音色最亮，像一束穿过窗帘的光，多用于旋律领奏与独奏段落。</p></div>
+      <div><b>中音萨克斯</b><em>ALTO</em><p>最经典的萨克斯音色，社团人数最多的声部，也是新成员的主要起点。</p></div>
+      <div><b>次中音萨克斯</b><em>TENOR</em><p>低沉而松弛，带一点沙哑的呼吸感，负责重奏里的中低声部与即兴。</p></div>
+      <div><b>上低音萨克斯</b><em>BARITONE</em><p>整支乐队的"地板"，弯管粗壮，音色厚实，一开口就能托住所有人。</p></div>
+    </div>
+
+    <!-- 要求2：一键返回顶部 -->
+    <a class="to-top" href="#top">↑ 一键返回顶部</a>
+  </div>
+</section>
+
+<!-- ================= 2. 活动安排 ================= -->
+<section class="section alt" id="schedule">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>活动安排<span class="en">Spring 2026 Schedule</span></h2>
+    </div>
+    <div class="rule"></div>
+
+    <div class="prose">
+      <p class="lead">2026 年春季学期从 3 月 2 日开始，到 6 月 20 日结束，共 16 个教学周。我们把一学期切成四段：三月认识彼此，四月磨合声部，五月走上舞台，六月交接给下一届。固定排练仍是每周三、周六的 19:00 至 21:00，地点在艺术楼 A305 音乐教室；遇到大型演出前，会临时增加一次合排，具体时间提前一周在社团群里通知。</p>
+
+      <p>三月是"见面"的月份。3 月 4 日的新成员见面会安排在艺术楼 A305 音乐教室，届时会介绍社团历史、声部分工、乐器借用规则和本学期的曲目计划，也会让每位新同学试着吹响第一个音——吹不响完全没关系，社里有一半人第一次也是这样。三天后的 3 月 7 日，萨克斯基础教学公开课同样在 A305 举行，两场活动特意放在同一间教室，是为了让新同学不用记两个地址、也不用在教学楼里来回找门牌。公开课面向全校开放，内容包括乐器构造、哨片安装、口型与气息的入门练习，还会现场拆解一段简单的旋律。</p>
+
+      <p>三月中旬的春季招新路演设在大学生活动中心广场。我们会摆出四支不同声部的乐器，路过的同学可以戴上一次性哨片试吹；去年路演时，一位路过的女生试吹了三个音就报了名，如今她是高音声部的首席。四月进入"磨合"阶段：4 月 11 日在艺术楼 A307 排练厅进行重奏声部排练（一），重点解决声部之间的平衡与呼吸同步；4 月 18 日校运会开幕式，社团将作为表演方阵在田径场主席台前演奏两首进行曲，那是全年观众最多的一场演出，也是最考验稳定度的一场。</p>
+
+      <p>五月的高潮是 5 月 23 日晚 19:30 在艺术楼音乐厅举办的"金色黄昏"春季音乐会。这是社团一年中最重要的专场：曲目从古典改编到爵士标准曲，从电影配乐到社员自己写的重奏小品，十二人以上的大重奏会第一次完整亮相。演出前一周（5 月 16 日）安排全流程彩排，包括走台、灯光、话筒与返送；演出当天下午还有一次带妆联排。音乐会免费入场，无需预约，欢迎带上你的室友和朋友。</p>
+
+      <p>六月是收尾与交接。6 月 13 日进行期末考核与换届选举：考核不考"吹得多难"，而是看这一学期的出勤、声部内的合奏完成度，以及是否愿意在下学期带一位新同学；换届则由全体成员投票产生新一届理事会，负责下一学年的排练、演出与外联。学期结束前，我们还会组织一次社团聚餐，把这一学期欠下的笑话都讲完。</p>
+
+      <p>本学期的曲目单在开学第二周确定，分为三组：一组是重奏基础曲目，用来练声部平衡与呼吸同步；一组是音乐会的正式曲目，包括《金色黄昏》《Fly Me to the Moon》和一首改编自电影配乐的慢板；还有一组是"自选曲"，由各声部自己报曲、自己编配，谁编的谁负责带排。曲目确定后会打印成谱夹发给每个人，谱面上留出空白，方便声部长用铅笔标注换气口与力度。</p>
+
+      <p>关于参与方式，有几点需要提前说明：所有活动均免费向全校同学开放，旁听不需要报名；正式社员需保证每月至少参加六次排练，因课程冲突无法到场时，请提前在群里向声部长请假；社团乐器借用需登记，学期末统一归还并做清洁保养；演出服装由社团统一提供，男生深色西装、女生深色长裙，鞋子自备。我们不追求"人人专业"，但希望每一次合排，大家都能准时推开 A305 的门。</p>
+    </div>
+
+    <!-- 要求3：跨行跨列表格（参考 ex3_16）；标题占 4 列，第二行居中，见面会与公开课同一教室 -->
+    <div class="table-wrap">
+      <table class="schedule">
+        <tr class="table-title">
+          <th colspan="4">萨克斯社 2026 年春季学期活动安排表</th>
+        </tr>
+        <tr class="table-head">
+          <th>时间</th>
+          <th>活动名称</th>
+          <th>地点</th>
+          <th>负责部门</th>
+        </tr>
+        <tr>
+          <td rowspan="3">三月</td>
+          <td>新成员见面会</td>
+          <td>艺术楼 A305 音乐教室</td>
+          <td>组织部</td>
+        </tr>
+        <tr>
+          <td>萨克斯基础教学公开课</td>
+          <td>艺术楼 A305 音乐教室</td>
+          <td>教学部</td>
+        </tr>
+        <tr>
+          <td>春季招新路演（可现场试吹）</td>
+          <td>大学生活动中心广场</td>
+          <td>宣传部</td>
+        </tr>
+        <tr>
+          <td rowspan="2">四月</td>
+          <td>重奏声部排练（一）</td>
+          <td>艺术楼 A307 排练厅</td>
+          <td>演出部</td>
+        </tr>
+        <tr>
+          <td>校运会开幕式方阵演出</td>
+          <td>田径场主席台</td>
+          <td>演出部</td>
+        </tr>
+        <tr>
+          <td>五月</td>
+          <td colspan="2" class="span-activity">"金色黄昏"春季专场音乐会（含彩排与带妆联排）</td>
+          <td>理事会</td>
+        </tr>
+        <tr>
+          <td>六月</td>
+          <td>期末考核与换届选举</td>
+          <td>艺术楼 A305 音乐教室</td>
+          <td>理事会</td>
+        </tr>
+        <tr class="note">
+          <td colspan="4">备注：以上活动均免费向全校同学开放，旁听无需报名；具体时间如有调整，以社团群公告为准。新成员见面会与萨克斯基础教学公开课同在艺术楼 A305 音乐教室举行，请按门牌指引入场。</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 要求2：一键返回顶部 -->
+    <a class="to-top" href="#top">↑ 一键返回顶部</a>
+  </div>
+</section>
+
+<!-- ================= 3. 风采展示 ================= -->
+<section class="section" id="showcase">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>风采展示<span class="en">On Stage</span></h2>
+    </div>
+    <div class="rule"></div>
+
+    <div class="prose">
+      <p class="lead">舞台上的四分钟，是十六个周里每一个周三晚上的总和。排练室里吹错的那些音，会在音乐厅的灯光下变成一种笃定——你知道身边站着谁，也知道下一小节该在哪里换气。</p>
+
+      <p>社团每年有两次固定的公开亮相：秋季的迎新晚会与春季的"金色黄昏"专场音乐会。前者面向刚入校的新同学，曲目偏轻快，常常是改编的流行歌或电影主题曲；后者是社团的年度大戏，从选曲、编配到舞台灯光都由社员自己完成，十二人以上的大重奏会在这一晚完整亮相。除此之外，我们还会不定期出现在校运会开幕式、毕业季草坪音乐会、社区文化节和小学的公益课堂上。</p>
+
+      <p>这张照片拍在某个周三晚上的排练室：四个人坐成一排，脖子上挂着乐器背带，面前支着谱台，墙上用图钉钉着满满一板乐谱。没有舞台灯，只有顶灯和窗外剩下的天光；铜管是画面里唯一的亮色，把一个普通的排练小时照得像一场小型演出。</p>
+
+      <p>照片里的几个人分别来自不同的声部，年级从大一到大四，有人刚学两个月，有人已经吹了四年。他们中有两位是零基础入社的：第一次拿起萨克斯时连哨片都装反了，一个长音撑不过四拍。现在他们能一起把一首曲子吹到最后一个音符同时收音——这件事听起来简单，实际上需要几十次合排才能做到。</p>
+
+      <p>下方这段三秒钟的短片，拍的就是这样的日常：镜头贴着谱台慢慢推近，四支萨克斯的按键在灯下依次亮起来，铜管的弧线最后占满画面。它原本只是宣传部随手录下的一段素材，后来被剪进招新路演循环播放的片子里，成了我们最常用的一句自我介绍——"你看，这就是我们的周三晚上"。</p>
+
+      <p>演出之外，社员们也有自己的小传统：每场音乐会结束后在音乐厅门口拍一张大合影，谁站中间由当天吹得最稳的人决定；每年毕业季，老社员会把自己用过的哨片夹进一本谱子里，写上名字和入学年份，留给下一届；每学期的最后一次排练不排曲子，只点外卖、放录音，把这一学期所有跑调的地方再听一遍，然后一起笑。</p>
+
+      <p>2025 年秋天，我们还做过一次"快闪"：中午十二点十分，八个人从食堂门口四个方向同时出现，第一声长音落下时，路过的同学还以为是谁的手机在响；等第二声进来，前排已经围了一圈人。整段演奏不到三分钟，最后一小节收音时，人群里爆发出一阵掌声，有人问我们是不是音乐学院的。那天风很大，谱子被吹得翻页，吹上低音的同学干脆闭着眼睛吹完了最后一个音。</p>
+
+      <p>每一次演出，宣传部都会留下一份影像记录：一段固定机位，一段手持跟拍，再加上后台的花絮。这些素材被剪成三五分钟的短片，存在社团的硬盘里，也成了每年招新路演时循环播放的背景。很多新同学说，他们是在某一段视频里第一次听见完整的萨克斯重奏，才决定来 A305 看看的。</p>
+
+      <p>观众的反馈，我们也一直记着。有人说萨克斯太吵，我们就调整编制与力度，把重奏练得更"收"；有人说在音乐厅里听不清旋律，我们就在节目单上加上曲目介绍与演奏提示；还有一位常来听音乐会的老师，每次都会在结束后写一两百字的听后感发到群里，比任何奖状都让我们高兴。</p>
+    </div>
+
+    <!-- 要求4：插入图片，点击图片跳转 club_intro.html（参考 ex3_19、ex3_20） -->
+    <div class="media-row">
+      <figure class="media-photo">
+        <a href="club_intro.html" title="点击查看萨克斯社活动介绍">
+          <img src="sax_club.jpg" alt="萨克斯社社员在排练室坐成一排吹奏萨克斯" width="864" height="1152">
+        </a>
+        <figcaption><b>日常排练 · 艺术楼 A305</b>四个声部坐成一排，谱台、乐谱，和铜管上的反光。点击图片可查看活动介绍页。</figcaption>
+      </figure>
+      <div class="video-frame">
+        <embed src="sax_club.mp4" type="video/mp4" width="480" height="640" loop="true" title="萨克斯社排练日常短片">
+      </div>
+    </div>
+    <p class="media-note">左侧照片点击可打开 <a href="club_intro.html">club_intro.html</a>（活动介绍页）；视频无法播放时，可<a href="sax_club.mp4">点此下载</a>。</p>
+
+    <!-- 要求2：一键返回顶部 -->
+    <a class="to-top" href="#top">↑ 一键返回顶部</a>
+  </div>
+</section>
+
+<!-- ================= 4. 社员故事 ================= -->
+<section class="section alt" id="story">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>社员故事<span class="en">A Member's Story</span></h2>
+    </div>
+    <div class="rule"></div>
+
+    <div class="story">
+      <p class="drop">第一次摸到萨克斯，是在大一军训结束后的第三个下午。招新摊位摆在梧桐树下，风把横幅吹得鼓起来，一支擦得发亮的铜管躺在琴箱里，像一件不太真实的道具。负责摊位的老社长把乐器递过来，说："试试，随便吹一个音。"我深吸一口气，腮帮子鼓得像青蛙，吹出来的却只有一声闷闷的漏气声。周围的人笑了，老社长也笑，然后把哨片重新装好，教我把下嘴唇轻轻包住牙齿："别用蛮力，气要从肚子里出来。"那天我蹲在摊位前吹了半个小时，终于吹出一个像样的 G 音，声音抖得像风里的旗子。</p>
+
+      <p>入社的第一个月，我借了一把社团的中音萨克斯。乐器不算新，按键上有一层被前几任主人磨出来的哑光，背带有点旧，勒在脖子上半小时就会留下红印。宿舍没有琴房，我只能去教学楼的空教室练，练到保安来赶人。最难的是长音：一个音要吹满八拍，中途不能抖、不能掉、不能破。我练到第七天的时候，嘴唇内侧磨出了一个小口子，一吹就疼，疼得眼眶发热，却还是舍不得停。后来声部长告诉我，每个人都会经历这个阶段，等嘴唇上的茧长起来，就不疼了。</p>
+
+      <p>第二次合排，我才真正明白"重奏"是什么意思。那天排的是一首很慢的曲子，四个声部一起进来，我的音偏高了一点点，整片和声就像被人从中间撕开了一道缝。声部长没有批评我，只是把节拍器调慢，让我跟着上低音声部吹，听那个厚实的底音，把自己的音"放"进去。试到第五遍，四个音终于严丝合缝地叠在一起，那种感觉很难形容，像是站在一个房间里，四周的墙同时向你靠拢，把你稳稳地托住。</p>
+
+      <p>第一次上台是在 2024 年的迎新晚会。后台很挤，弦乐社的提琴箱靠在墙角，主持人在前面报幕，我的手心全是汗，连按键都打滑。上台前，老社长把我的领子整理好，只说了一句话："看我的起拍，别看观众。"灯亮起来的那一瞬间，台下黑压压的一片，我什么都看不清，只看得见他举起的右手。第一个音出去的时候，我听见自己的声音被扩音器放大，混进其他三个声部里，变得比想象中好听。四个小节之后，我发现自己不抖了。</p>
+
+      <p>那首曲子吹完，掌声比我想象中长。鞠躬的时候我偷偷抬头，看见第一排有个女生在鼓掌，眼睛亮亮的。后来她成了我们社的新成员，现在吹高音声部，音色比我当年干净得多。这件事我一直记得，因为它让我第一次意识到，舞台上那几分钟，不只是给自己听的。</p>
+
+      <p>老社长毕业那年，社团在音乐厅给他办了一场小型欢送会。散场之后，他把用了四年的萨克斯交给我，琴箱里塞着一张纸条，上面写着："气息要稳，人要松弛。"我抱着那支乐器在空荡荡的音乐厅坐了很久，灯已经关了，只有安全出口的绿光。那一刻我忽然明白，一个社团真正传下去的东西，从来不是谱子，而是有人愿意把乐器递给你，然后站在你身后，等你吹出第一个音。</p>
+
+      <p>现在轮到我带新人了。上周三，一个大一女生抱着乐器坐在排练室角落，吹了半小时也吹不响，急得眼圈发红。我走过去，把她的哨片重新装了一遍，让她先别按键，只对着管口吹气。第三次，一声清亮的音终于出来了，她愣了两秒，然后笑出声来。那一瞬间我好像看见了四年前的自己——蹲在梧桐树下的招新摊位前，风把横幅吹得鼓起来，而有人正耐心地等着我，吹出第一个音。</p>
+
+      <p>如果你也想成为故事里的下一个人，我们在 A305 等你。乐器可以借，基础可以从零开始，唯一需要你带来的，是一点愿意把周三晚上交给音乐的耐心。</p>
+
+      <blockquote>
+        气息要稳，人要松弛。铜管会记得你每一个夜晚的练习，也会在某个黄昏，替你把话说给台下的人听。
+        <footer>—— 2022 级社员 · 中音声部</footer>
+      </blockquote>
+    </div>
+
+    <!-- 要求2：一键返回顶部 -->
+    <a class="to-top" href="#top">↑ 一键返回顶部</a>
+  </div>
+</section>
+
+<!-- ================= 5. 在线报名 ================= -->
+<section class="section" id="join">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2>在线报名<span class="en">Join Us</span></h2>
+    </div>
+    <div class="rule"></div>
+
+    <div class="prose">
+      <p class="lead">2026 年春季招新面向全校在读本科生与研究生，不限专业、不限年级、不限基础。我们既欢迎已经吹过几年、想找一支重奏乐队的人，也同样欢迎完全零基础、只是想试试这件乐器的同学——后者往往是我们最期待的新成员。</p>
+
+      <p>报名流程很简单：第一步，填写下方的在线报名表，信息只用于社团内部联系，不会对外公开；第二步，提交后三天内，组织部会通过短信或邮件与你确认，并把你拉进本学期的招新群；第三步，参加一次十分钟左右的见面交流，内容不是考试，可能只是聊聊天、听你清唱一首歌，或者让你试吹一下社团的乐器；第四步，根据你的音域、兴趣和时间安排，分配到你合适的声部，并指定一位声部长带你入门。</p>
+
+      <p>关于"零基础"，我们想把话说得更清楚一些：社里超过一半的成员是进大学才第一次接触萨克斯，社团常备十二支乐器可以免费借用一整个学期，只要登记并按时归还即可。零基础的新同学会先进入"合奏预备班"，用六到八周的时间完成口型、气息、长音、吐音和第一个八度的练习，学期中段再并入正式声部参加合排。上个学期，预备班的二十三位同学全部在期末音乐会上登了台。</p>
+
+      <p>时间投入方面，固定排练是每周三、周六晚 19:00 至 21:00，每月大约还有一次对外活动。如果你这学期课业压力很大，也可以先以"旁听社员"的身份参加公开课和排练，不占用社团编制，等时间宽裕了再转正。社团每学期收取 30 元会费，用于哨片、清洁耗材与演出物料，乐器借用不额外收费；家庭经济困难的同学可以申请减免，这在我们社从来不是需要难为情的事。</p>
+
+      <p>最后回答几个被问得最多的问题。会不会影响学习？排练固定在晚上，考试周停排，社里每年都有拿奖学金的同学。要不要自己买乐器？入门阶段完全不用，确定长期坚持之后再考虑，社团可以帮忙参考型号。五音不全可以吗？可以，萨克斯不是唱歌，音准靠耳朵和练习，不靠天赋。需要面试吗？需要一次见面交流，但它的目的是互相了解，不是筛选。</p>
+
+      <p>关于报名表怎么填，也有几点小建议：手机和邮箱至少留一项，并且确保能收到消息，我们不会给你打推销电话；兴趣方向可以多选，但请诚实选择你真正愿意花时间的那一项，因为声部安排会参考它；自我介绍不用写得像作文，"我学过两年钢琴，想在大学里学一门管乐"这样一句话就足够；如果只能参加周六的排练，也请在表里说明，我们会尽量把重奏小组排到你能到的时段。</p>
+
+      <p>见面交流通常约在周三或周六排练前半小时，地点就在 A305。你不需要准备曲目，也不必紧张——多数时候我们只是聊十分钟：你为什么想学萨克斯、平时喜欢听什么音乐、这学期大概有多少空闲时间。如果你愿意，可以试吹一下社团的乐器；不愿意也没关系，听一段老社员的演奏同样算数。我们更在意的是你愿不愿意在接下来的十六周里，每周出现两次。</p>
+
+      <p>如果还有疑问，欢迎在社团开放日（每周三 18:30，艺术楼 A305）直接来问，或者发邮件到 saxclub@example.com。报名表常年开放，春季与秋季各集中处理一次。</p>    </div>
+
+    <!-- ========== 要求7：在线报名表（参考 ex3_30，十项内容全部放在 table 中） ========== -->
+    <div class="form-card">
+      <form action="#" method="get">
+        <table class="reg">
+          <tr>
+            <th scope="row">姓名<span class="req">*</span></th>
+            <td>
+              <input type="text" name="name" size="18" maxlength="20" placeholder="请填写真实姓名" required>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">性别</th>
+            <td>
+              <label class="opt"><input type="radio" name="gender" value="男" checked>男</label>
+              <label class="opt"><input type="radio" name="gender" value="女">女</label>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">出生日期</th>
+            <td>
+              <span class="ymd">
+                <input type="text" name="year" size="6" maxlength="4" placeholder="2006"><span>年</span>
+                <input type="text" name="month" size="4" maxlength="2" placeholder="05"><span>月</span>
+                <input type="text" name="day" size="4" maxlength="2" placeholder="18"><span>日</span>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">手机 / 邮箱</th>
+            <td>
+              <input type="text" name="phone" size="20" maxlength="20" placeholder="手机号码">
+              <input type="text" name="email" size="30" maxlength="60" placeholder="常用邮箱" style="margin-left:10px">
+              <span class="field-note">两者均为文本框输入，请至少填写一项，方便我们与你确认见面时间。</span>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">是否有萨克斯基础</th>
+            <td>
+              <label class="opt"><input type="radio" name="base" value="有，可独立演奏">有，可独立演奏</label>
+              <label class="opt"><input type="radio" name="base" value="有一点，学过其他管乐">有一点，学过其他管乐</label>
+              <label class="opt"><input type="radio" name="base" value="完全没有，零基础" checked>完全没有，零基础</label>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">兴趣方向</th>
+            <td>
+              <label class="opt"><input type="checkbox" name="interest" value="独奏">独奏</label>
+              <label class="opt"><input type="checkbox" name="interest" value="重奏">重奏</label>
+              <label class="opt"><input type="checkbox" name="interest" value="乐队合奏">乐队合奏</label>
+              <label class="opt"><input type="checkbox" name="interest" value="编曲改编">编曲改编</label>
+              <label class="opt"><input type="checkbox" name="interest" value="宣传运营">宣传运营</label>
+              <span class="field-note">可多选，我们据此安排声部与社团工作。</span>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">年级</th>
+            <td>
+              <select name="grade" size="1">
+                <option value="大一" selected>大一</option>
+                <option value="大二">大二</option>
+                <option value="大三">大三</option>
+                <option value="大四">大四</option>
+                <option value="研究生">研究生</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">自我介绍</th>
+            <td>
+              <textarea name="intro" rows="5" cols="60" placeholder="请简单介绍自己、以及加入萨克斯社的理由……"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">是否服从活动安排</th>
+            <td>
+              <label class="opt"><input type="radio" name="follow" value="服从" checked>服从</label>
+              <label class="opt"><input type="radio" name="follow" value="视情况而定">视情况而定</label>
+              <label class="opt"><input type="radio" name="follow" value="不服从">不服从</label>
+              <span class="field-note">选择"视情况而定"的同学，请在自我介绍里说明可参加的时间段。</span>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">提交</th>
+            <td>
+              <div class="actions">
+                <input type="submit" value="提交报名">
+                <input type="reset" value="重填">
+              </div>
+              <span class="field-note">本表为课程作业演示表单，提交后页面会刷新并显示已填内容。</span>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+
+    <!-- 要求2：一键返回顶部 -->
+    <a class="to-top" href="#top">↑ 一键返回顶部</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <b>萨克斯社 SAXOPHONE CLUB</b>
+  排练地点：艺术楼 A305 音乐教室<span class="sep">|</span>排练时间：每周三、周六 19:00–21:00<br>
+  社团邮箱：saxclub@example.com<span class="sep">|</span>指导教师：陈默<span class="sep">|</span>成立时间：2011 年 9 月<br>
+  © 2026 萨克斯社 · 本页面为《网页设计与制作》上机作业 work2
+</footer>
+
+<script>
+  /* 要求1：点击左上角按钮播放 / 暂停背景音乐 */
+  (function () {
+    var audio = document.getElementById('bgm');
+    var btn = document.getElementById('bgmBtn');
+    var text = document.getElementById('bgmText');
+    if (!audio || !btn) return;
+
+    function label() {
+      var playing = !audio.paused;
+      text.textContent = playing ? '暂停背景音乐' : '点击播放背景音乐';
+      btn.setAttribute('aria-pressed', playing ? 'true' : 'false');
+      btn.querySelector('.note').textContent = playing ? '❚❚' : '♪';
+    }
+
+    btn.addEventListener('click', function () {
+      if (audio.paused) {
+        var p = audio.play();
+        if (p && p.catch) { p.catch(function () { text.textContent = '点击播放背景音乐'; }); }
+      } else {
+        audio.pause();
+      }
+    });
+
+    audio.addEventListener('play', label);
+    audio.addEventListener('pause', label);
+    label();
+  })();
+</script>
+</body>
+</html>
