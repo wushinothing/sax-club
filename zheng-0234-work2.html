@@ -19,7 +19,7 @@
     --maxw:1040px;
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:auto}          /* 页内跳转“立刻”到达，不做平滑滚动 */
+  html{scroll-behavior:auto}        
   body{
     margin:0;background:var(--bg);color:var(--text);
     font:16px/1.9 "Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",sans-serif;
@@ -29,7 +29,7 @@
   img{max-width:100%}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 
-  /* ---------- 要求1：左上角背景音乐 ---------- */
+
   .bgm{
     position:fixed;left:16px;top:16px;z-index:200;
     display:flex;flex-direction:column;align-items:stretch;gap:8px;
@@ -53,7 +53,7 @@
   .bgm button .note{font-size:16px}
   .bgm audio{height:32px;width:200px;display:block}
 
-  /* ---------- 头图 ---------- */
+  
   .hero{
     position:relative;min-height:100vh;
     display:flex;align-items:center;
@@ -61,7 +61,7 @@
     background:#0c0b10;
     isolation:isolate;overflow:hidden;
   }
-  /* 竖构图照片做背景：先铺一层模糊压暗的底，再由 ::before 叠渐变 */
+  
   .hero::after{
     content:"";position:absolute;inset:-70px;z-index:-2;
     background:url("sax_club.jpg") center 32%/cover no-repeat;
@@ -105,7 +105,7 @@
   .btn-ghost{border:1px solid rgba(240,207,149,.45);color:var(--gold2)}
   .btn-ghost:hover{background:rgba(216,162,74,.12);border-color:var(--gold)}
 
-  /* ---------- 要求2：五个页内跳转链接 ---------- */
+ 
   .nav{
     position:sticky;top:0;z-index:120;
     background:rgba(12,11,16,.88);
@@ -123,7 +123,7 @@
   }
   .nav a:hover,.nav a:focus{background:var(--gold);color:#161006}
 
-  /* ---------- 版块通用 ---------- */
+ 
   .section{padding:100px 0;border-bottom:1px solid var(--line);scroll-margin-top:76px}
   .section.alt{background:linear-gradient(180deg,var(--bg2),var(--bg))}
   .sec-head{display:flex;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px}
@@ -145,7 +145,7 @@
   .prose .lead{font-size:18px;line-height:2.05;color:#efe7d9;text-indent:0}
   .prose strong{color:var(--gold2);font-weight:600}
 
-  /* 数据条 */
+
   .stats{
     display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
     background:var(--line);border:1px solid var(--line);
@@ -155,7 +155,7 @@
   .stats b{display:block;font-size:32px;color:var(--gold2);letter-spacing:.02em;line-height:1.2}
   .stats span{font-size:13px;color:var(--muted);letter-spacing:.08em}
 
-  /* 声部卡片 */
+ 
   .instruments{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:44px 0 0}
   .instruments div{
     background:var(--panel);border:1px solid var(--line);border-radius:14px;
@@ -166,7 +166,7 @@
   .instruments em{display:block;font-style:normal;font:11px/1.6 ui-monospace,monospace;letter-spacing:.22em;color:var(--muted);margin-bottom:12px}
   .instruments p{margin:0;font-size:14px;line-height:1.85;color:#b9b1a5}
 
-  /* ---------- 要求3：活动安排表 ---------- */
+  
   .table-wrap{
     margin:6px 0 0;border:1px solid var(--line);border-radius:16px;
     overflow-x:auto;background:var(--panel);
@@ -181,7 +181,7 @@
     text-align:center;padding:22px 20px;border-bottom:1px solid rgba(216,162,74,.35);
   }
   .schedule .table-head th{
-    text-align:center;                /* 第二行内容居中 */
+    text-align:center;                
     background:#151320;color:#efe7d9;font-weight:600;letter-spacing:.10em;
   }
   .schedule tbody td:first-child{
@@ -195,7 +195,7 @@
   }
   .schedule .span-activity{color:#efe7d9;font-weight:600;letter-spacing:.04em}
 
-  /* ---------- 要求4/5：照片与视频并排；播放器按 3:4 填满自己的框，不留黑边 ---------- */
+  
   .media-row{
     display:grid;grid-template-columns:1fr 1fr;gap:22px;
     margin:44px auto 0;max-width:100%;align-items:start;
@@ -228,7 +228,7 @@
   }
   .media-note a{color:var(--gold2)}
 
-  /* ---------- 要求6：社员故事 ---------- */
+ 
   .story{max-width:820px}
   .story p{margin:0 0 1.2em;text-align:justify;text-justify:inter-ideograph;color:#d6cfc3;line-height:2.05}
   .story p+p{text-indent:2em}
@@ -244,7 +244,7 @@
   }
   blockquote footer{margin-top:14px;font-size:13px;color:var(--muted);letter-spacing:.1em}
 
-  /* ---------- 要求7：在线报名 ---------- */
+  
   .form-card{
     background:var(--panel);border:1px solid var(--line);border-radius:18px;
     padding:10px 30px 30px;margin-top:44px;
@@ -289,7 +289,7 @@
   input[type=reset]{background:transparent;border:1px solid #3a3348;color:var(--muted)}
   input[type=reset]:hover{border-color:var(--gold);color:var(--gold2)}
 
-  /* 一键返回 */
+ 
   .to-top{
     display:inline-flex;align-items:center;gap:9px;margin-top:48px;
     padding:11px 22px;border:1px solid var(--line);border-radius:999px;
@@ -298,12 +298,12 @@
   }
   .to-top:hover{color:#161006;background:var(--gold);border-color:var(--gold)}
 
-  /* 页脚 */
+  
   footer{padding:64px 24px 54px;text-align:center;color:var(--muted);font-size:13.5px;line-height:2}
   footer b{color:var(--gold2);letter-spacing:.16em;font-size:15px;display:block;margin-bottom:10px}
   footer .sep{color:#3d3748;margin:0 10px}
 
-  /* 响应式 */
+  
   @media (max-width:900px){
     .stats{grid-template-columns:repeat(2,1fr)}
     .instruments{grid-template-columns:repeat(2,1fr)}
@@ -328,7 +328,7 @@
 </head>
 <body id="top">
 
-<!-- ========== 要求1：网页左上角点击播放背景音乐（参考 ex3_23 的 audio 标签） ========== -->
+
 <div class="bgm">
   <button id="bgmBtn" type="button" aria-controls="bgm" aria-pressed="false">
     <span class="note">♪</span><span id="bgmText">点击播放背景音乐</span>
@@ -336,7 +336,7 @@
   <audio id="bgm" src="sax_theme.mp3" controls loop preload="metadata"></audio>
 </div>
 
-<!-- ========== 头图 ========== -->
+
 <header class="hero">
   <div class="hero-inner">
     <p class="kicker">Saxophone Club · Since 2011</p>
@@ -349,7 +349,7 @@
   </div>
 </header>
 
-<!-- ========== 要求2：五个指向本网页内部的跳转链接（参考 ex3_12） ========== -->
+
 <nav class="nav" aria-label="页面导航">
   <ul>
     <li><a href="#intro">社团简介</a></li>
@@ -362,7 +362,7 @@
 
 <main>
 
-<!-- ================= 1. 社团简介 ================= -->
+
 <section class="section" id="intro">
   <div class="wrap">
     <div class="sec-head">
@@ -405,12 +405,12 @@
       <div><b>上低音萨克斯</b><em>BARITONE</em><p>整支乐队的"地板"，弯管粗壮，音色厚实，一开口就能托住所有人。</p></div>
     </div>
 
-    <!-- 要求2：一键返回顶部 -->
+    
     <a class="to-top" href="#top">↑ 一键返回顶部</a>
   </div>
 </section>
 
-<!-- ================= 2. 活动安排 ================= -->
+
 <section class="section alt" id="schedule">
   <div class="wrap">
     <div class="sec-head">
@@ -435,7 +435,7 @@
       <p>关于参与方式，有几点需要提前说明：所有活动均免费向全校同学开放，旁听不需要报名；正式社员需保证每月至少参加六次排练，因课程冲突无法到场时，请提前在群里向声部长请假；社团乐器借用需登记，学期末统一归还并做清洁保养；演出服装由社团统一提供，男生深色西装、女生深色长裙，鞋子自备。我们不追求"人人专业"，但希望每一次合排，大家都能准时推开 A305 的门。</p>
     </div>
 
-    <!-- 要求3：跨行跨列表格（参考 ex3_16）；标题占 4 列，第二行居中，见面会与公开课同一教室 -->
+   
     <div class="table-wrap">
       <table class="schedule">
         <tr class="table-title">
@@ -491,12 +491,12 @@
       </table>
     </div>
 
-    <!-- 要求2：一键返回顶部 -->
+    
     <a class="to-top" href="#top">↑ 一键返回顶部</a>
   </div>
 </section>
 
-<!-- ================= 3. 风采展示 ================= -->
+
 <section class="section" id="showcase">
   <div class="wrap">
     <div class="sec-head">
@@ -525,7 +525,7 @@
       <p>观众的反馈，我们也一直记着。有人说萨克斯太吵，我们就调整编制与力度，把重奏练得更"收"；有人说在音乐厅里听不清旋律，我们就在节目单上加上曲目介绍与演奏提示；还有一位常来听音乐会的老师，每次都会在结束后写一两百字的听后感发到群里，比任何奖状都让我们高兴。</p>
     </div>
 
-    <!-- 要求4：插入图片，点击图片跳转 club_intro.html（参考 ex3_19、ex3_20） -->
+    
     <div class="media-row">
       <figure class="media-photo">
         <a href="club_intro.html" title="点击查看萨克斯社活动介绍">
@@ -539,12 +539,12 @@
     </div>
     <p class="media-note">左侧照片点击可打开 <a href="club_intro.html">club_intro.html</a>（活动介绍页）；视频无法播放时，可<a href="sax_club.mp4">点此下载</a>。</p>
 
-    <!-- 要求2：一键返回顶部 -->
+    
     <a class="to-top" href="#top">↑ 一键返回顶部</a>
   </div>
 </section>
 
-<!-- ================= 4. 社员故事 ================= -->
+
 <section class="section alt" id="story">
   <div class="wrap">
     <div class="sec-head">
@@ -576,12 +576,12 @@
       </blockquote>
     </div>
 
-    <!-- 要求2：一键返回顶部 -->
+  
     <a class="to-top" href="#top">↑ 一键返回顶部</a>
   </div>
 </section>
 
-<!-- ================= 5. 在线报名 ================= -->
+
 <section class="section" id="join">
   <div class="wrap">
     <div class="sec-head">
@@ -607,7 +607,7 @@
 
       <p>如果还有疑问，欢迎在社团开放日（每周三 18:30，艺术楼 A305）直接来问，或者发邮件到 saxclub@example.com。报名表常年开放，春季与秋季各集中处理一次。</p>    </div>
 
-    <!-- ========== 要求7：在线报名表（参考 ex3_30，十项内容全部放在 table 中） ========== -->
+    
     <div class="form-card">
       <form action="#" method="get">
         <table class="reg">
@@ -702,7 +702,7 @@
       </form>
     </div>
 
-    <!-- 要求2：一键返回顶部 -->
+  
     <a class="to-top" href="#top">↑ 一键返回顶部</a>
   </div>
 </section>
@@ -717,7 +717,7 @@
 </footer>
 
 <script>
-  /* 要求1：点击左上角按钮播放 / 暂停背景音乐 */
+  
   (function () {
     var audio = document.getElementById('bgm');
     var btn = document.getElementById('bgmBtn');
